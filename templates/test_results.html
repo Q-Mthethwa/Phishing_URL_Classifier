@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Results</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Container Styles */
+        .container {
+            margin-top: 60px;
+            margin-bottom: 60px;
+            max-width: 800px;
+            width: 100%;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* Header Styles */
+        h1 {
+            color: #4a90e2;
+            font-size: 28px;
+            margin-bottom: 1rem;
+        }
+
+        /* Results List Styles */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f3f4f6;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: left;
+            color: #555;
+        }
+
+        li.legit {
+            border-left: 5px solid #4caf50;
+        }
+
+        li.suspicious {
+            border-left: 5px solid #e74c3c;
+        }
+
+        /* Navigation Button Styles */
+        .link-button {
+            margin-top: 2rem;
+            display: inline-block;
+            background-color: #4a90e2;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .link-button:hover {
+            background-color: #357ab9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Results</h1>
+        <ul>
+            {% for result in results %}
+                <li class="{{ 'legit' if 'Legit' in result else 'suspicious' }}">{{ result }}</li>
+            {% endfor %}
+        </ul>
+        <a href="/" class="link-button">Go Back to Home</a>
+    </div>
+</body>
+</html>

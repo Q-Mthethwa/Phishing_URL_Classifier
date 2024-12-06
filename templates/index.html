@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Fraud Detection</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Container Styles */
+        .container {
+            max-width: 500px;
+            width: 100%;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* Header Styles */
+        h1 {
+            color: #4a90e2;
+            font-size: 24px;
+            margin-bottom: 1rem;
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Button Styles */
+        button {
+            background-color: #4a90e2;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #357ab9;
+        }
+
+        .link-button {
+            margin-top: 1rem;
+            display: inline-block;
+            background-color: #28a745;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .link-button:hover {
+            background-color: #218838;
+        }
+
+        /* Result Styles */
+        .result {
+            margin-top: 1.5rem;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Success and Warning Styles */
+        .legit {
+            color: #4caf50;
+        }
+
+        .suspicious {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>URL Fraud Detection</h1>
+        <form method="POST">
+            <label for="url">Enter a URL:</label>
+            <input type="text" id="url" name="url" placeholder="https://example.com" required>
+            <button type="submit">Analyze</button>
+        </form>
+        
+        {% if result %}
+            <div class="result {{ 'legit' if result == 'Legit URL' else 'suspicious' }}">
+                <h2>Result for {{ url }}:</h2>
+                <p>{{ result }}</p>
+            </div>
+        {% endif %}
+
+        <!-- Button to Navigate to Test Results -->
+        <a href="/test-results" class="link-button">View Test Results</a>
+    </div>
+</body>
+</html>
