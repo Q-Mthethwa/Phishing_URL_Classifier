@@ -18,5 +18,6 @@ def test_results():
     results = test_predictions()
     return render_template('test_results.html', results=results)
 
+
 if __name__ == "__main__":
     app.run(debug=True)
