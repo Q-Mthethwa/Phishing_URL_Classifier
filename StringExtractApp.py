@@ -17,7 +17,6 @@ def get_classification(url):
 def get_test_Data():
     df = pd.read_csv("verified_online.csv")
     urlList = []
-
     for count, i in enumerate(df['url']):
         if df['verified'][count] == 'yes': #Load URL if verified as phishing
             urlList.append(i)
