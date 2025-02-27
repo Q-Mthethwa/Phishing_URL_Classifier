@@ -4,7 +4,7 @@ import pandas as pd
 def get_classification(url):
     # Prepare data to send to the API
     testing_data = url
-    api_url = "your_api_key"
+    api_url = "the_models_api_key"
     try:
         response = requests.post(api_url, json={"input": testing_data})
         response.raise_for_status()
